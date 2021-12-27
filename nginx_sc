@@ -1,3 +1,4 @@
+{
 read -p "Enter domain name foder:" dnf1 ;
 sudo chown -R $USER:$USER /var/www/ ;
 mkdir /var/www/$dnf1 ;
@@ -32,3 +33,4 @@ echo "server {
 }" > /etc/nginx/sites-enabled/$sn1 ;
 sudo service nginx reload ;
 echo Nginx was config success ! Go to YOURIP:81 to check ! ;
+}
