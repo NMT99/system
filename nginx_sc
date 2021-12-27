@@ -1,6 +1,5 @@
 #/bin/bash
 {
-sudo rm -rf /var/www/* ;
 read -p "Enter domain name foder:" dnf1 ;
 sudo chown -R $USER:$USER /var/www/ ;
 mkdir /var/www/$dnf1 ;
