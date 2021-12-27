@@ -1,9 +1,10 @@
 #/bin/bash
 sudo apt update ;
 sudo apt install nginx -y ;
-sudo chown -R $USER:$USER /var/www/$dnf1 ;
+
 sudo chown -R $USER:$USER /etc/nginx/sites-enabled/ ;
 read -p "Enter domain name foder:" dnf1 ;
+sudo chown -R $USER:$USER /var/www/$dnf1 ;
 sudo mkdir /var/www/$dnf1 ;
 touch /var/www/$dnf1/index.html ;
 echo "<!doctype html>
