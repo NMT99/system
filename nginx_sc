@@ -1,0 +1,37 @@
+#/bin/bash
+sudo apt update ;
+sudo apt install nginx -y ;
+read -p "Enter domain name foder:" dnf1 ;
+sudo mkdir /var/www/$dnf1 ;
+sudo chown -R $USER:$USER /var/www/$dnf1 ; 
+touch /var/www/$dnf1/index.html ;
+echo "<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello, Nginx!</title>
+</head>
+<body>
+    <h1>Config success !</h1>
+    <p>We are legion!</p>
+</body>
+</html>" > /var/www/$dnf1/index.html ; 
+sudo chown -R $USER:$USER /etc/nginx/sites-enabled/ ;
+read -p "Enter your ServerName:" sn1 ;
+touch /etc/nginx/sites-enabled/$sn1.conf ;
+echo "server {
+       listen 81;
+       listen [::]:81;
+
+       server_name example.ubuntu.com;
+
+       root /var/www/$dnf1;
+       index index.html;
+
+       location / {
+               try_files $uri $uri/ =404;
+       }
+}" > /etc/nginx/sites-enabled/$sn1 ;
+sudo service nginx reload ;
+echo Nginx was config success ! Go to below ip with port 81 ! ;
+}
