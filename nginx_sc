@@ -34,5 +34,5 @@ echo "server {
        }
 }" > /etc/nginx/sites-enabled/$sn1 ;
 sudo service nginx reload ;
-echo Nginx was config success ! Go to below ip with port 81 ! ;
+echo Nginx was config success ! Go to YOURIP:81 to check ! ;
 }
