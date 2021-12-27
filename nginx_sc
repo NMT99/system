@@ -18,7 +18,7 @@ echo "<!doctype html>
 
 read -p "Enter your ServerName:" sn1 ;
 sudo chown -R $USER:$USER /etc/nginx/sites-enabled/ ;
-touch /etc/nginx/sites-enabled/$sn1.conf ;
+touch /etc/nginx/sites-enabled/$sn1 ;
 echo "server {
        listen 81;
        listen [::]:81;
