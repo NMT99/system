@@ -1,16 +1,10 @@
 #/bin/bash
-sudo apt update ;
-sudo apt install nginx -y ;
-
-
+{
 sudo rm -rf /var/www/* ;
 read -p "Enter domain name foder:" dnf1 ;
 sudo chown -R $USER:$USER /var/www/ ;
 mkdir /var/www/$dnf1 ;
 touch /var/www/$dnf1/index.html ;
-
-
-
 echo "<!doctype html>
 <html>
 <head>
@@ -21,7 +15,7 @@ echo "<!doctype html>
     <h1>Config success !</h1>
     <p>We are legion!</p>
 </body>
-</html>" > /var/www/$dnf1/index.html ; 
+</html>" > /var/www/$dnf1/index.html ;
 
 read -p "Enter your ServerName:" sn1 ;
 sudo chown -R $USER:$USER /etc/nginx/sites-enabled/ ;
