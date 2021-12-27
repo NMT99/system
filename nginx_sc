@@ -2,11 +2,15 @@
 sudo apt update ;
 sudo apt install nginx -y ;
 
-sudo chown -R $USER:$USER /etc/nginx/sites-enabled/ ;
+
+sudo rm -rf /var/www/* ;
 read -p "Enter domain name foder:" dnf1 ;
-sudo chown -R $USER:$USER /var/www/$dnf1 ;
-sudo mkdir /var/www/$dnf1 ;
+sudo chown -R $USER:$USER /var/www/ ;
+mkdir /var/www/$dnf1 ;
 touch /var/www/$dnf1/index.html ;
+
+
+
 echo "<!doctype html>
 <html>
 <head>
@@ -20,6 +24,7 @@ echo "<!doctype html>
 </html>" > /var/www/$dnf1/index.html ; 
 
 read -p "Enter your ServerName:" sn1 ;
+sudo chown -R $USER:$USER /etc/nginx/sites-enabled/ ;
 touch /etc/nginx/sites-enabled/$sn1.conf ;
 echo "server {
        listen 81;
