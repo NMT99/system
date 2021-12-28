@@ -1,0 +1,50 @@
+sudo apt update
+sudo apt install nginx -y
+#tao thu muc webtiengia
+sudo mkdir /var/www/webtiengia
+
+
+#tao file index.html cho website tiengia.com
+sudo nano /var/www/webtiengia/index.html
+####file index.html cua webtiengia
+###GNU nano 4.8  /var/www/webtiengia/index.html            
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello, Nginx!</title>
+</head>
+<body>
+    <h1>Config success !</h1>
+    <p>We are legion!</p>
+</body>
+</html>
+
+
+
+sudo nano /etc/nginx/sites-enabled/webtiengia
+### file cau hinh cua webtiengia
+###/etc/nginx/sites-enabled/webtiengia  
+server {
+       listen 81;
+       listen [::]:81;
+
+       server_name example.ubuntu.com;
+
+       root /var/www/webtiengia;
+       index index.html;
+
+       location / {
+               try_files $uri $uri/ =404;
+       }
+}
+
+
+
+
+sudo service nginx reload
+##hoac sudo service nginx restart
+
+# sudo service ssh restart/sudo service ssh start/sudo service ssh reload/sudo service ssh status
+
+
