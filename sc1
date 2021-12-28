@@ -1,0 +1,41 @@
+#/bin/bash
+{
+sudo apt update ;
+sudo apt install nginx -y ;
+read -p "Enter domain name foder:" dnf1 ;
+sudo mkdir -p /var/www/$dnf1 ;
+sudo chown -R $USER:$USER /var/www/$dnf1/ ;
+touch /var/www/$dnf1/index.html ;
+echo "<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hello, Nginx!</title>
+</head>
+<body>
+    <h1>Config success !</h1>
+    <p>We are legion!</p>
+</body>
+</html>" > /var/www/$dnf1/index.html ;
+###3
+read -p "Enter your ServerName:" sn1 ;
+sudo chown -R $USER:$USER /etc/nginx/sites-enabled/ ;
+touch /etc/nginx/sites-enabled/$sn1 ;
+sudo mv /etc/nginx/sites-enabled/default /etc/nginx/sites-enabled/default_bak ;
+#sudo chown -R $USER:$USER /etc/nginx/sites-enabled/ ;
+echo "server {
+    listen      81;             # port
+    server_name abc.com; # dns server name
+ 
+    # log files
+    access_log  /var/log/nginx/$sn1_access.log;
+    error_log   /var/log/nginx/$sn1_error.lg;
+ 
+    # document root where files stores for cms.cyberciti.biz domain
+    root /var/www/a;
+    index index.html index.htm;
+}" > /etc/nginx/sites-enabled/$sn1 ;
+#Enabling your Server Blocks and Restart Nginx
+sudo service nginx reload ;
+echo Nginx was config success ! Go to below ip with port 81 ! ;
+}
